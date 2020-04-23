@@ -1,14 +1,16 @@
 import React from 'react';
 import './ImageList.css';
 
+import Image from './Image';
+
 function ImageList(props) {
-    return props.images.map(image => {
-        return (
-            <div className='myGrid'>
-                <img key={image.id} src={image.urls.regular}/>
-            </div>
-        )
+    const renderedImageList = props.images.map(image => {
+        return <Image key={image.id} image={image}/>
     });
+
+    return (
+        <div className='image-list'>{renderedImageList}</div>
+    )
 }
 
 export default ImageList;
